@@ -1,23 +1,11 @@
-import React, { useContext, useState } from "react";
-import { Page } from "../Page";
-import { Link, useParams } from "react-router-dom";
-import { InvoicesContext } from "../../providers";
-import { DataTable } from "..";
-import { INVOICE_TABLE_HEADERS } from "../../shared";
-import { formatDate, formatPrice, sendMail } from "../../utils";
-import styled from "styled-components";
-import { SELLER_COMPANY_INFO } from "../../mockData";
-import { TableCell } from "../Tables/TableCell";
-import { CenteredRow } from "../CenteredRow";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { AppRoutes } from "../../models";
+import React, { useState } from "react";
 import { Button } from "../Button";
 import Modal from 'react-modal';
 import { InputContainer } from '../InputContainer';
 import { InputLabel } from '../InputLabel';
 import { InputField } from '../InputField';
 import { WarningText } from '../WarningText';
+import { sendMail } from '../../utils';
 
 Modal.setAppElement('#root');
 
