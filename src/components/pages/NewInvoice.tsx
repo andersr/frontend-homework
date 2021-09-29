@@ -1,5 +1,5 @@
 import "react-datepicker/dist/react-datepicker.css";
-import React, { useCallback, useContext, useState } from "react";
+import React, { useCallback, useContext, useEffect, useState } from "react";
 import styled from "styled-components";
 import { DataTable } from "..";
 import { InvoiceItemRow } from "../InvoiceItemRow";
@@ -21,6 +21,7 @@ import { Button } from "../Button";
 import { InputTextArea } from "../InputTextArea";
 import { TableCell } from "../Tables/TableCell";
 import { WarningText } from "../WarningText";
+import { SELLER_COMPANY_INFO } from '../../mockData';
 export const TEST_CREATE_BUTTON = "testCreateButton";
 export const TEST_ERROR_MESSAGE = "testErrorMessage";
 const Container = styled.div``;
@@ -61,7 +62,6 @@ const FIELD_LABELS: { [index: string]: string } = {
 const now = new Date();
 const nowFormatted = date.format(now, "YYYY-MM-DD");
 const inThirtyDays = date.addDays(now, 30);
-// const thirtyDaysformatted = date.format(inThirtyDays, 'YYYY-MM-DD');
 
 function NewInvoice() {
   const history = useHistory();
@@ -117,13 +117,7 @@ function NewInvoice() {
     }
 
     handleAddInvoice({
-      companyInfo: {
-        companyName: "My Business",
-        street: "123 Main St.",
-        city: "New York",
-        usState: "NY",
-        zipCode: "10001",
-      },
+      companyInfo: SELLER_COMPANY_INFO,
       customerInfo: customerValues,
       items: invoiceItems,
       notes,
@@ -134,7 +128,6 @@ function NewInvoice() {
     });
 
     history.push("/");
-    // display an alert message
   };
 
   return (
