@@ -13,7 +13,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { AppRoutes } from "../../models";
 import { Button } from "../Button";
+import Modal from 'react-modal';
 
+Modal.setAppElement('#root');
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -32,15 +34,27 @@ const BoldTableCell = styled(TableCell)`
   font-weight: bold;
 `;
 
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+  },
+};
+
 export function ViewInvoice() {
   const { id } = useParams<{ id: string }>();
   const { invoices } = useContext(InvoicesContext);
-
+  const [modalIsOpen, setIsOpen] = React.useState(false)
   const invoice = invoices.find((inv) => inv.invoiceNumber === id);
 
   return (
     <div>
       <CenteredRow>
+      <button onClick={() => setIsOpen(true)}>Open Modal</button>
         <div>
           <Link to={AppRoutes.HOME}>
             <FontAwesomeIcon title="Back to invoice list" icon={faArrowLeft} />{" "}
@@ -111,6 +125,25 @@ export function ViewInvoice() {
           <div>Sorry, we could not display that invoice.</div>
         )}
       </Page>
+      <Modal
+        isOpen={modalIsOpen}
+        // onAfterOpen={afterOpenModal}
+        onRequestClose={() => setIsOpen(false)}
+        style={customStyles}
+        contentLabel="Example Modal"
+        shouldCloseOnOverlayClick
+      >
+        <h2>Hello</h2>
+        <button onClick={() => setIsOpen(false)}>close</button>
+        <div>I am a modal</div>
+        <form>
+          <input />
+          <button>tab navigation</button>
+          <button>stays</button>
+          <button>inside</button>
+          <button>the modal</button>
+        </form>
+      </Modal>
     </div>
   );
 }
