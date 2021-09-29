@@ -35,11 +35,11 @@ const SectionSpacer = styled.div`
 `;
 
 const CUSTOMER_DEFAULT_VALUES: BusinessAdress = {
-  companyName: "Some Company, Inc.",
-  street: "123 Main St.",
-  city: "New York",
-  zipCode: "12345",
-  usState: "NY",
+  companyName: "",
+  street: "",
+  city: "",
+  zipCode: "",
+  usState: "",
 };
 
 const INVOICE_ITEM_DEFAULT_VALUES = {
@@ -110,7 +110,12 @@ function NewInvoice() {
 
   const handleCreateInvoice = (e: any) => {
     e.preventDefault();
-    // validate form
+
+    if (Object.values(customerValues).some((val) => val.trim() === '')) {
+      setErrorMessage("Please enter company info.");
+      return;
+    }
+
     if (invoiceItems.length === 0) {
       setErrorMessage("Please add one or more invoice items.");
       return;
