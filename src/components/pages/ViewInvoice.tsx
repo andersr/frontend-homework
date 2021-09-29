@@ -1,10 +1,10 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Page } from "../Page";
 import { Link, useParams } from "react-router-dom";
 import { InvoicesContext } from "../../providers";
 import { DataTable } from "..";
 import { INVOICE_TABLE_HEADERS } from "../../shared";
-import { formatDate, formatPrice } from "../../utils";
+import { formatDate, formatPrice, sendMail } from "../../utils";
 import styled from "styled-components";
 import { SELLER_COMPANY_INFO } from "../../mockData";
 import { TableCell } from "../Tables/TableCell";
@@ -14,6 +14,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { AppRoutes } from "../../models";
 import { Button } from "../Button";
 import Modal from 'react-modal';
+import { SendEmailForm } from './SendEmailForm';
 
 Modal.setAppElement('#root');
 const Row = styled.div`
@@ -34,27 +35,24 @@ const BoldTableCell = styled(TableCell)`
   font-weight: bold;
 `;
 
-const customStyles = {
-  content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
-  },
-};
-
 export function ViewInvoice() {
   const { id } = useParams<{ id: string }>();
   const { invoices } = useContext(InvoicesContext);
-  const [modalIsOpen, setIsOpen] = React.useState(false)
+  const [modalIsOpen, setIsOpen] = useState(false);
   const invoice = invoices.find((inv) => inv.invoiceNumber === id);
+  const [alertMessage, setAlertMessage] = useState('');
 
+  useEffect(() => {
+    if (alertMessage) {
+      setTimeout(() => {
+        setAlertMessage('')
+      }, 5000);
+    }
+  }, [alertMessage])
   return (
     <div>
+      {alertMessage && <div>{alertMessage}</div>}
       <CenteredRow>
-      <button onClick={() => setIsOpen(true)}>Open Modal</button>
         <div>
           <Link to={AppRoutes.HOME}>
             <FontAwesomeIcon title="Back to invoice list" icon={faArrowLeft} />{" "}
@@ -62,7 +60,7 @@ export function ViewInvoice() {
           </Link>
         </div>
         <div>
-          <Button onClick={() => alert("send email")}>Email Invoice</Button>
+          <Button onClick={() => setIsOpen(true)}>Email Invoice</Button>
         </div>
       </CenteredRow>
       <Page largeTitle pageTitle={"Invoice"}>
@@ -125,25 +123,7 @@ export function ViewInvoice() {
           <div>Sorry, we could not display that invoice.</div>
         )}
       </Page>
-      <Modal
-        isOpen={modalIsOpen}
-        // onAfterOpen={afterOpenModal}
-        onRequestClose={() => setIsOpen(false)}
-        style={customStyles}
-        contentLabel="Example Modal"
-        shouldCloseOnOverlayClick
-      >
-        <h2>Hello</h2>
-        <button onClick={() => setIsOpen(false)}>close</button>
-        <div>I am a modal</div>
-        <form>
-          <input />
-          <button>tab navigation</button>
-          <button>stays</button>
-          <button>inside</button>
-          <button>the modal</button>
-        </form>
-      </Modal>
+      <SendEmailForm invoiceNumber={id} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} handleEmailResult={setAlertMessage} />
     </div>
   );
 }

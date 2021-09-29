@@ -22,13 +22,10 @@ import { InputTextArea } from "../InputTextArea";
 import { TableCell } from "../Tables/TableCell";
 import { WarningText } from "../WarningText";
 import { SELLER_COMPANY_INFO } from '../../mockData';
+import { InputContainer } from '../InputContainer';
 export const TEST_CREATE_BUTTON = "testCreateButton";
 export const TEST_ERROR_MESSAGE = "testErrorMessage";
 const Container = styled.div``;
-
-const InputContainer = styled.div`
-  margin-bottom: 10px;
-`;
 
 const SectionSpacer = styled.div`
   margin-bottom: 20px;

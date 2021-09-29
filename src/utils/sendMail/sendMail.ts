@@ -15,8 +15,10 @@ export const sendMail = async ({
   invoiceLink,
   message,
 }: MailParams) => {
+  let result;
+
   try {
-    await emailjs.send(
+    result = await emailjs.send(
       process.env.REACT_APP_EMAIL_SERVICE as string,
       process.env.REACT_APP_EMAIL_TEMPLATE as string,
       {
@@ -27,8 +29,10 @@ export const sendMail = async ({
         to_email: toEmail,
       },
       process.env.REACT_APP_EMAIL_USERNAME as string
-    );
+      );
   } catch (error) {
-    console.error("send email error: ", error);
+    result = error;
+  } finally {
+    return result;
   }
 };
