@@ -21,6 +21,7 @@ export function InvoiceItemRow({ handleChange, item }: Props) {
               value: e.target.value,
             });
           }}
+          placeholder="Add description"
         />
       </TableCell>
       <TableCell>
@@ -30,6 +31,7 @@ export function InvoiceItemRow({ handleChange, item }: Props) {
           onChange={(e) =>
             handleChange({ key: "quantity", value: e.target.value })
           }
+          placeholder="Add qty/hours worked"
         />
       </TableCell>
       <TableCell>
@@ -39,6 +41,7 @@ export function InvoiceItemRow({ handleChange, item }: Props) {
           onChange={(e) =>
             handleChange({ key: "unitPrice", value: e.target.value })
           }
+          placeholder="Add charge per unit/hour"
         />
       </TableCell>
       <TableCell>{formatPrice(item.subTotal)}</TableCell>
