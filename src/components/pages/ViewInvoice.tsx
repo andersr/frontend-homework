@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 import { InvoicesContext } from "../../providers";
 import { DataTable } from "..";
 import { INVOICE_TABLE_HEADERS } from "../../shared";
-import { formatDate, formatPrice, sendMail } from "../../utils";
+import { formatDate, formatPrice } from "../../utils";
 import styled from "styled-components";
 import { SELLER_COMPANY_INFO } from "../../mockData";
 import { TableCell } from "../Tables/TableCell";
