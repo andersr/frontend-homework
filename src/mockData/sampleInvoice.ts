@@ -1,6 +1,6 @@
-import { MOCK_BUYER_1 } from './sampleBuyers';
-import { SELLER_COMPANY_INFO } from './sellerCompanyInfo';
-import { InvoiceProps } from '../models';
+import { MOCK_BUYER_1 } from "./sampleBuyers";
+import { SELLER_COMPANY_INFO } from "./sellerCompanyInfo";
+import { InvoiceProps } from "../models";
 
 export const SAMPLE_INVOICE: InvoiceProps = {
   companyInfo: SELLER_COMPANY_INFO,

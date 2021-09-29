@@ -29,7 +29,7 @@ export const sendMail = async ({
         to_email: toEmail,
       },
       process.env.REACT_APP_EMAIL_USERNAME as string
-      );
+    );
   } catch (error) {
     result = error;
   } finally {

@@ -10,23 +10,25 @@ export const InvoicesContext = React.createContext<{
   handleAddInvoice: () => undefined,
 });
 
-
 export const InvoiceProvider: React.FC = ({ children }) => {
   const [invoices, setInvoices] = useState<ActiveInvoice[]>([]);
 
-  const handleAddInvoice = useCallback((invoice: InvoiceProps) => {
-    setInvoices([
-      ...invoices,
-      {
-        invoiceNumber: (invoices.length + 1).toString(),
-        ...invoice,
-      },
-    ]);
-  }, [invoices]);
+  const handleAddInvoice = useCallback(
+    (invoice: InvoiceProps) => {
+      setInvoices([
+        ...invoices,
+        {
+          invoiceNumber: (invoices.length + 1).toString(),
+          ...invoice,
+        },
+      ]);
+    },
+    [invoices]
+  );
 
   useEffect(() => {
     handleAddInvoice(SAMPLE_INVOICE);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

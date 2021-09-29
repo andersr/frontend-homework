@@ -3,11 +3,7 @@ import React, { useCallback, useContext, useState } from "react";
 import styled from "styled-components";
 import { DataTable } from "..";
 import { InvoiceItemRow } from "../InvoiceItemRow";
-import {
-  BusinessAdress,
-  InvoiceItem,
-  KeyValuePair,
-} from "../../models";
+import { BusinessAdress, InvoiceItem, KeyValuePair } from "../../models";
 import { INVOICE_TABLE_HEADERS } from "../../shared";
 import * as uuid from "uuid";
 import { InvoicesContext } from "../../providers";
@@ -21,8 +17,8 @@ import { Button } from "../Button";
 import { InputTextArea } from "../InputTextArea";
 import { TableCell } from "../Tables/TableCell";
 import { WarningText } from "../WarningText";
-import { SELLER_COMPANY_INFO } from '../../mockData';
-import { InputContainer } from '../InputContainer';
+import { SELLER_COMPANY_INFO } from "../../mockData";
+import { InputContainer } from "../InputContainer";
 export const TEST_CREATE_BUTTON = "testCreateButton";
 export const TEST_ERROR_MESSAGE = "testErrorMessage";
 const Container = styled.div``;
@@ -108,7 +104,7 @@ function NewInvoice() {
   const handleCreateInvoice = (e: any) => {
     e.preventDefault();
 
-    if (Object.values(customerValues).some((val) => val.trim() === '')) {
+    if (Object.values(customerValues).some((val) => val.trim() === "")) {
       setErrorMessage("Please enter company info.");
       return;
     }
@@ -146,7 +142,7 @@ function NewInvoice() {
         )}
         <form onSubmit={handleCreateInvoice}>
           {CUSTOMER_FIELDS.map((field) => (
-          <React.Fragment key={field}>
+            <React.Fragment key={field}>
               <InputContainer>
                 <InputLabel htmlFor={field}>{FIELD_LABELS[field]}</InputLabel>
                 <InputField
@@ -160,7 +156,7 @@ function NewInvoice() {
                   value={customerValues[field]}
                 />
               </InputContainer>
-          </React.Fragment>
+            </React.Fragment>
           ))}
           <SectionSpacer />
           <DataTable headers={INVOICE_TABLE_HEADERS}>

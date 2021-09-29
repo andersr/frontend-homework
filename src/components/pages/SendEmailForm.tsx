@@ -1,22 +1,22 @@
 import React, { useState } from "react";
 import { Button } from "../Button";
-import Modal from 'react-modal';
-import { InputContainer } from '../InputContainer';
-import { InputLabel } from '../InputLabel';
-import { InputField } from '../InputField';
-import { WarningText } from '../WarningText';
-import { sendMail } from '../../utils';
+import Modal from "react-modal";
+import { InputContainer } from "../InputContainer";
+import { InputLabel } from "../InputLabel";
+import { InputField } from "../InputField";
+import { WarningText } from "../WarningText";
+import { sendMail } from "../../utils";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 
 const customStyles = {
   content: {
-    top: '50%',
-    left: '50%',
-    right: 'auto',
-    bottom: 'auto',
-    marginRight: '-50%',
-    transform: 'translate(-50%, -50%)',
+    top: "50%",
+    left: "50%",
+    right: "auto",
+    bottom: "auto",
+    marginRight: "-50%",
+    transform: "translate(-50%, -50%)",
   },
 };
 
@@ -27,7 +27,12 @@ interface Props {
   handleEmailResult: (result: string) => void;
 }
 
-export function SendEmailForm({ modalIsOpen, setIsOpen, invoiceNumber, handleEmailResult }: Props) {
+export function SendEmailForm({
+  modalIsOpen,
+  setIsOpen,
+  invoiceNumber,
+  handleEmailResult,
+}: Props) {
   const [loading, setLoading] = useState(false);
 
   const [senderName, setSenderName] = useState("");
@@ -36,11 +41,11 @@ export function SendEmailForm({ modalIsOpen, setIsOpen, invoiceNumber, handleEma
 
   const handleSendEmail = async () => {
     if (errorMessage) {
-      setErrorMessage(undefined)
+      setErrorMessage(undefined);
     }
 
     if (!toEmail) {
-      setErrorMessage('Please enter a recipient email address.')
+      setErrorMessage("Please enter a recipient email address.");
       return;
     }
     setLoading(true);
@@ -53,45 +58,42 @@ export function SendEmailForm({ modalIsOpen, setIsOpen, invoiceNumber, handleEma
     setLoading(false);
     if (result.status === 200) {
       setIsOpen(false);
-      handleEmailResult(`Email successfully sent to '${toEmail}'`)
+      handleEmailResult(`Email successfully sent to '${toEmail}'`);
     } else {
-      setErrorMessage(result.text)
+      setErrorMessage(result.text);
     }
-
-    
-
   };
 
   return (
     <Modal
-    isOpen={modalIsOpen}
-    style={customStyles}
-    contentLabel="Example Modal"
-    onRequestClose={() => setIsOpen(false)}
-    shouldCloseOnOverlayClick
-  >
-    <h2>Email Invoice</h2>
-    <button onClick={() => setIsOpen(false)}>close</button>
-    {errorMessage && <WarningText>{errorMessage}</WarningText>}
-    <InputContainer>
-                <InputLabel htmlFor="senderName">Your Name</InputLabel>
-                <InputField
-                  id={"senderName"}
-                  onChange={(e) => setSenderName(e.target.value)}
-                  value={senderName}
-                />
-              </InputContainer>
-              <InputContainer>
-              <InputLabel htmlFor="toEmail">Recipient Email</InputLabel>
-                <InputField
-                  id={"toEmail"}
-                  onChange={(e) => setToEmail(e.target.value)}
-                  value={toEmail}
-                />
-              </InputContainer>
-              <Button onClick={handleSendEmail} disabled={loading}>
-            {loading ? 'Sending...' : 'Send'}
-          </Button>
-  </Modal>
+      isOpen={modalIsOpen}
+      style={customStyles}
+      contentLabel="Example Modal"
+      onRequestClose={() => setIsOpen(false)}
+      shouldCloseOnOverlayClick
+    >
+      <h2>Email Invoice</h2>
+      <button onClick={() => setIsOpen(false)}>close</button>
+      {errorMessage && <WarningText>{errorMessage}</WarningText>}
+      <InputContainer>
+        <InputLabel htmlFor="senderName">Your Name</InputLabel>
+        <InputField
+          id={"senderName"}
+          onChange={(e) => setSenderName(e.target.value)}
+          value={senderName}
+        />
+      </InputContainer>
+      <InputContainer>
+        <InputLabel htmlFor="toEmail">Recipient Email</InputLabel>
+        <InputField
+          id={"toEmail"}
+          onChange={(e) => setToEmail(e.target.value)}
+          value={toEmail}
+        />
+      </InputContainer>
+      <Button onClick={handleSendEmail} disabled={loading}>
+        {loading ? "Sending..." : "Send"}
+      </Button>
+    </Modal>
   );
 }

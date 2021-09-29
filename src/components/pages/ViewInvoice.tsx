@@ -13,10 +13,10 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { AppRoutes } from "../../models";
 import { Button } from "../Button";
-import Modal from 'react-modal';
-import { SendEmailForm } from './SendEmailForm';
+import Modal from "react-modal";
+import { SendEmailForm } from "./SendEmailForm";
 
-Modal.setAppElement('#root');
+Modal.setAppElement("#root");
 const Row = styled.div`
   display: flex;
   flex-direction: row;
@@ -40,15 +40,15 @@ export function ViewInvoice() {
   const { invoices } = useContext(InvoicesContext);
   const [modalIsOpen, setIsOpen] = useState(false);
   const invoice = invoices.find((inv) => inv.invoiceNumber === id);
-  const [alertMessage, setAlertMessage] = useState('');
+  const [alertMessage, setAlertMessage] = useState("");
 
   useEffect(() => {
     if (alertMessage) {
       setTimeout(() => {
-        setAlertMessage('')
+        setAlertMessage("");
       }, 5000);
     }
-  }, [alertMessage])
+  }, [alertMessage]);
   return (
     <div>
       {alertMessage && <div>{alertMessage}</div>}
@@ -123,7 +123,12 @@ export function ViewInvoice() {
           <div>Sorry, we could not display that invoice.</div>
         )}
       </Page>
-      <SendEmailForm invoiceNumber={id} modalIsOpen={modalIsOpen} setIsOpen={setIsOpen} handleEmailResult={setAlertMessage} />
+      <SendEmailForm
+        invoiceNumber={id}
+        modalIsOpen={modalIsOpen}
+        setIsOpen={setIsOpen}
+        handleEmailResult={setAlertMessage}
+      />
     </div>
   );
 }
