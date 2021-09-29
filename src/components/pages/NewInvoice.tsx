@@ -1,5 +1,5 @@
 import "react-datepicker/dist/react-datepicker.css";
-import React, { useCallback, useContext, useEffect, useState } from "react";
+import React, { useCallback, useContext, useState } from "react";
 import styled from "styled-components";
 import { DataTable } from "..";
 import { InvoiceItemRow } from "../InvoiceItemRow";
@@ -144,19 +144,21 @@ function NewInvoice() {
         )}
         <form onSubmit={handleCreateInvoice}>
           {CUSTOMER_FIELDS.map((field) => (
-            <InputContainer>
-              <InputLabel htmlFor={field}>{FIELD_LABELS[field]}</InputLabel>
-              <InputField
-                id={field}
-                onChange={(e) =>
-                  setCustomerValues((state) => ({
-                    ...state,
-                    [field]: e.target.value,
-                  }))
-                }
-                value={customerValues[field]}
-              />
-            </InputContainer>
+          <React.Fragment key={field}>
+              <InputContainer>
+                <InputLabel htmlFor={field}>{FIELD_LABELS[field]}</InputLabel>
+                <InputField
+                  id={field}
+                  onChange={(e) =>
+                    setCustomerValues((state) => ({
+                      ...state,
+                      [field]: e.target.value,
+                    }))
+                  }
+                  value={customerValues[field]}
+                />
+              </InputContainer>
+          </React.Fragment>
           ))}
           <SectionSpacer />
           <DataTable headers={INVOICE_TABLE_HEADERS}>
