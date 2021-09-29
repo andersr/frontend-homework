@@ -1,5 +1,6 @@
 import React from "react";
 import { InvoiceItem, KeyValuePair } from "../models";
+import { formatPrice } from '../utils';
 import { InputField } from "./InputField";
 import { TableCell } from "./Tables/TableCell";
 
@@ -40,7 +41,7 @@ export function InvoiceItemRow({ handleChange, item }: Props) {
           }
         />
       </TableCell>
-      <TableCell>{item.subTotal}</TableCell>
+      <TableCell>{formatPrice(item.subTotal)}</TableCell>
     </>
   );
 }
