@@ -1,5 +1,5 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { SAMPLE_INVOICE } from "../mockData";
+// import { SAMPLE_INVOICE } from "../mockData";
 import { ActiveInvoice, InvoiceProps } from "../models";
 
 export const InvoicesContext = React.createContext<{
@@ -27,7 +27,8 @@ export const InvoiceProvider: React.FC = ({ children }) => {
   );
 
   useEffect(() => {
-    handleAddInvoice(SAMPLE_INVOICE);
+    // Add a default invoice, for testing purposes
+    // handleAddInvoice(SAMPLE_INVOICE);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
