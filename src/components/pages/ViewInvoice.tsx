@@ -53,11 +53,11 @@ export function ViewInvoice() {
       }, 5000);
     }
 
-    return () => { 
+    return () => {
       if (id) {
-        clearTimeout(id)
+        clearTimeout(id);
       }
-     };
+    };
   }, [alertMessage]);
   return (
     <div>
