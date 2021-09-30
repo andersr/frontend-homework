@@ -69,8 +69,8 @@ export function ViewInvoice() {
       <CenteredRow>
         <div>
           <LinkButton to={AppRoutes.HOME}>
-            <FontAwesomeIcon title="Back to invoice list" icon={faArrowLeft} />{" "}
-            All Invoices
+            <FontAwesomeIcon icon={faArrowLeft} />{" "}
+            My Invoices
           </LinkButton>
         </div>
         <div>
