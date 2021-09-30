@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AppColors } from '../styles';
+import { AppColors } from "../styles";
 
 export const FlashAlert = styled.div`
   position: absolute;

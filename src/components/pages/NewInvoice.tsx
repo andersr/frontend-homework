@@ -19,12 +19,11 @@ import { TableCell } from "../TableCell";
 import { WarningText } from "../WarningText";
 import { SELLER_COMPANY_INFO } from "../../mockData";
 import { InputContainer } from "../InputContainer";
-import { formatPrice } from '../../utils';
-import { SectionSpacer } from '../SectionSpacer';
+import { formatPrice } from "../../utils";
+import { SectionSpacer } from "../SectionSpacer";
 export const TEST_CREATE_BUTTON = "testCreateButton";
 export const TEST_ERROR_MESSAGE = "testErrorMessage";
-const Container = styled.div`
-`;
+const Container = styled.div``;
 
 const CUSTOMER_DEFAULT_VALUES: BusinessAdress = {
   companyName: "",

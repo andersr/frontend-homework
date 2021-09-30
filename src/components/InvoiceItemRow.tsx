@@ -1,6 +1,6 @@
 import React from "react";
 import { InvoiceItem, KeyValuePair } from "../models";
-import { formatPrice } from '../utils';
+import { formatPrice } from "../utils";
 import { InputField } from "./InputField";
 import { TableCell } from "./TableCell";
 

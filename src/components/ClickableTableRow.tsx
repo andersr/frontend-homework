@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AppColors } from '../styles';
+import { AppColors } from "../styles";
 
 export const ClickableTableRow = styled.tr`
   cursor: pointer;

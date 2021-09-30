@@ -15,8 +15,8 @@ import { AppRoutes } from "../../models";
 import { Button } from "../Button";
 import Modal from "react-modal";
 import { SendEmailForm } from "../SendEmailForm";
-import { LinkButton } from '../LinkButton';
-import { FlashAlert } from '../FlashAlert';
+import { LinkButton } from "../LinkButton";
+import { FlashAlert } from "../FlashAlert";
 
 Modal.setAppElement("#root");
 const Row = styled.div`

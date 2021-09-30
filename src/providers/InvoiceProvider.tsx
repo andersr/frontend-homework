@@ -37,7 +37,7 @@ export const InvoiceProvider: React.FC = ({ children }) => {
         invoiceNumber: "2",
         ...LATE_INVOICE,
       },
-    ])
+    ]);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
