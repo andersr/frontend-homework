@@ -46,7 +46,6 @@ export function SendEmailForm({
   handleEmailResult,
 }: Props) {
   const [loading, setLoading] = useState(false);
-
   const [senderName, setSenderName] = useState("");
   const [toEmail, setToEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
@@ -73,7 +72,9 @@ export function SendEmailForm({
       toEmail,
       invoiceLink: `http://localhost:3000/invoices/${invoiceNumber}`,
     });
+
     setLoading(false);
+
     if (result.status === 200) {
       setIsOpen(false);
       handleEmailResult(`Email successfully sent to '${toEmail}'`);
@@ -96,9 +97,7 @@ export function SendEmailForm({
           altText="Close"
           icon={faTimes}
           onClick={() => setIsOpen(false)}
-        >
-          close
-        </IconButton>
+        />
       </CenteredRow>
       <SectionSpacer />
       {errorMessage && (
