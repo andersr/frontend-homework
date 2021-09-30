@@ -22,8 +22,6 @@ import { InputContainer } from "../InputContainer";
 import { formatPrice } from "../../utils";
 import { SectionSpacer } from "../SectionSpacer";
 
-export const TEST_CREATE_BUTTON = "testCreateButton";
-export const TEST_ERROR_MESSAGE = "testErrorMessage";
 export const MISSING_COMPANY_INFO_ERROR_MSG = "Please enter company info.";
 export const NO_ITEMS_ERROR_MSG = "Please add one or more invoice items.";
 
@@ -133,9 +131,7 @@ function NewInvoice() {
       <Container>
         {errorMessage && (
           <>
-            <WarningText data-testid={TEST_ERROR_MESSAGE}>
-              {errorMessage}
-            </WarningText>
+            <WarningText>{errorMessage}</WarningText>
             <SectionSpacer />
           </>
         )}
@@ -203,9 +199,7 @@ function NewInvoice() {
             </span>
           </InputContainer>
           <SectionSpacer />
-          <Button type="submit" data-testid={TEST_CREATE_BUTTON}>
-            Create Invoice
-          </Button>
+          <Button type="submit">Create Invoice</Button>
         </form>
       </Container>
     </Page>

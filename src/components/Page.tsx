@@ -3,9 +3,6 @@ import React from "react";
 import styled from "styled-components";
 import { CenteredRow } from "./CenteredRow";
 
-export const TEST_CREATE_BUTTON = "testCreateButton";
-export const TEST_ERROR_MESSAGE = "testErrorMessage";
-
 interface Props {
   pageTitle: string;
   actionButton?: JSX.Element;
