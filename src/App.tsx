@@ -11,10 +11,13 @@ const AppContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   background-color: white;
-  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
 `;
 
 const MainContent = styled.main`
+  flex: 1;
   padding: 20px;
 `;
 

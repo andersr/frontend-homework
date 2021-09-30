@@ -13,7 +13,9 @@ interface Props {
   largeTitle?: boolean;
 }
 
-const Container = styled.div``;
+const Container = styled.div`
+  background-color: white;
+`;
 
 const PageHeading = styled.h2<{ largeTitle?: boolean }>`
   margin: 0;

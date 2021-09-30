@@ -8,7 +8,6 @@ const Container = styled.div`
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-  height: 60px;
   background-color: ${AppColors.PRIMARY};
   color: white;
   padding: ${SECTION_PADDING};
@@ -23,7 +22,8 @@ const Container = styled.div`
   }
 `;
 const PageHeading = styled.h1`
-  margin: 0;
+  margin-top: 25px;
+  margin-bottom: 20px;
   padding: 0;
   line-height: 0;
   display: inline-block;
