@@ -21,9 +21,9 @@ import { SELLER_COMPANY_INFO } from "../../mockData";
 import { InputContainer } from "../InputContainer";
 import { formatPrice } from "../../utils";
 import { SectionSpacer } from "../SectionSpacer";
+
 export const TEST_CREATE_BUTTON = "testCreateButton";
 export const TEST_ERROR_MESSAGE = "testErrorMessage";
-
 export const MISSING_COMPANY_INFO_ERROR_MSG = "Please enter company info.";
 export const NO_ITEMS_ERROR_MSG = "Please add one or more invoice items.";
 
@@ -54,11 +54,8 @@ const FIELD_LABELS: { [index: string]: string } = {
   usState: "State",
 };
 
-const now = new Date();
-const nowFormatted = date.format(now, "YYYY-MM-DD");
-const inThirtyDays = date.addDays(now, 30);
-
 function NewInvoice() {
+  const now = new Date();
   const history = useHistory();
   const { handleAddInvoice } = useContext(InvoicesContext);
   const [customerValues, setCustomerValues] = useState<BusinessAdress>(
@@ -67,7 +64,7 @@ function NewInvoice() {
   const [invoiceItems, setInvoiceItems] = useState<InvoiceItem[]>([]);
   const [grandTotal, setGrandTotal] = useState(0);
   const [notes, setNotes] = useState("");
-  const [dueDate, setDueDate] = useState(inThirtyDays);
+  const [dueDate, setDueDate] = useState(date.addDays(now, 30));
   const [errorMessage, setErrorMessage] = useState("");
 
   const addInvoiceItem = () => {
@@ -123,7 +120,7 @@ function NewInvoice() {
       notes,
       status: "pending",
       grandTotal: grandTotal.toString(),
-      createdDate: nowFormatted,
+      createdDate: date.format(now, "YYYY-MM-DD"),
       dueDate: date.format(dueDate, "YYYY-MM-DD"),
     });
 
