@@ -1,9 +1,9 @@
 import React from "react";
 
 import { Switch, Route } from "react-router-dom";
-import NewInvoice from "./pages/NewInvoice";
-import { Homepage } from "./pages/Homepage";
-import { ViewInvoice } from "./pages/ViewInvoice";
+import NewInvoice from "../pages/NewInvoice";
+import { Homepage } from "../pages/Homepage";
+import { ViewInvoice } from "../pages/ViewInvoice";
 import { AppRoutes } from "../models";
 
 export function Routes() {

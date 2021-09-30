@@ -1,23 +1,23 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Page } from "../Page";
+import { Page } from "../components/Page";
 import { useParams } from "react-router-dom";
-import { InvoicesContext } from "../../providers";
-import { DataTable } from "..";
-import { INVOICE_TABLE_HEADERS } from "../../shared";
-import { formatDate, formatPrice } from "../../utils";
+import { InvoicesContext } from "../providers";
+import { DataTable } from "../components";
+import { INVOICE_TABLE_HEADERS } from "../shared";
+import { formatDate, formatPrice } from "../utils";
 import styled from "styled-components";
-import { SELLER_COMPANY_INFO } from "../../mockData";
-import { TableCell } from "../TableCell";
-import { CenteredRow } from "../CenteredRow";
+import { SELLER_COMPANY_INFO } from "../mockData";
+import { TableCell } from "../components/TableCell";
+import { CenteredRow } from "../components/CenteredRow";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
-import { AppRoutes } from "../../models";
-import { Button } from "../Button";
+import { AppRoutes } from "../models";
+import { Button } from "../components/Button";
 import Modal from "react-modal";
-import { SendEmailForm } from "../SendEmailForm";
-import { LinkButton } from "../LinkButton";
-import { FlashAlert } from "../FlashAlert";
-import { NoItemsMessage } from '../NoItemsMessage';
+import { SendEmailForm } from "../components/SendEmailForm";
+import { LinkButton } from "../components/LinkButton";
+import { FlashAlert } from "../components/FlashAlert";
+import { NoItemsMessage } from '../components/NoItemsMessage';
 Modal.setAppElement("#root");
 
 const Row = styled.div`
