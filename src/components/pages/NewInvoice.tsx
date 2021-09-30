@@ -24,6 +24,9 @@ import { SectionSpacer } from "../SectionSpacer";
 export const TEST_CREATE_BUTTON = "testCreateButton";
 export const TEST_ERROR_MESSAGE = "testErrorMessage";
 
+export const MISSING_COMPANY_INFO_ERROR_MSG = "Please enter company info."
+export const NO_ITEMS_ERROR_MSG = "Please add one or more invoice items.";
+
 const Container = styled.div``;
 
 const CUSTOMER_DEFAULT_VALUES: BusinessAdress = {
@@ -109,7 +112,7 @@ function NewInvoice() {
     }
 
     if (invoiceItems.length === 0) {
-      setErrorMessage("Please add one or more invoice items.");
+      setErrorMessage(NO_ITEMS_ERROR_MSG);
       return;
     }
 
@@ -145,6 +148,7 @@ function NewInvoice() {
               <InputContainer>
                 <InputLabel htmlFor={field}>{FIELD_LABELS[field]}</InputLabel>
                 <InputField
+                  data-testid={`companyInfo${field}`}
                   id={field}
                   onChange={(e) =>
                     setCustomerValues((state) => ({
