@@ -1,8 +1,6 @@
 import React from "react";
 import { AppRoutes } from "../models";
-import { InvoicesTable } from "../components/InvoicesTable";
-import { LinkButton } from "../components/LinkButton";
-import { Page } from "../components/Page";
+import { InvoicesTable, LinkButton, Page } from "../components";
 
 export function Homepage() {
   return (
