@@ -17,7 +17,7 @@ import Modal from "react-modal";
 import { SendEmailForm } from "../SendEmailForm";
 import { LinkButton } from "../LinkButton";
 import { FlashAlert } from "../FlashAlert";
-
+import { NoItemsMessage } from '../NoItemsMessage';
 Modal.setAppElement("#root");
 
 const Row = styled.div`
@@ -59,6 +59,7 @@ export function ViewInvoice() {
       }
     };
   }, [alertMessage]);
+  
   return (
     <div>
       {alertMessage && <FlashAlert>{alertMessage}</FlashAlert>}
@@ -130,7 +131,7 @@ export function ViewInvoice() {
             </div>
           </div>
         ) : (
-          <div>Sorry, we could not display that invoice.</div>
+          <NoItemsMessage>Sorry, we couldn't find that invoice.</NoItemsMessage>
         )}
       </Page>
       <SendEmailForm
