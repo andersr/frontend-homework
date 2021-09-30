@@ -1,3 +1,3 @@
 export * from "./sellerCompanyInfo";
 export * from "./sampleBuyers";
-export * from "./sampleInvoice";
+export * from "./sampleInvoices";
