@@ -16,6 +16,7 @@ import { Button } from "../Button";
 import Modal from "react-modal";
 import { SendEmailForm } from "./SendEmailForm";
 import { LinkButton } from '../LinkButton';
+import { FlashAlert } from '../FlashAlert';
 
 Modal.setAppElement("#root");
 const Row = styled.div`
@@ -52,7 +53,7 @@ export function ViewInvoice() {
   }, [alertMessage]);
   return (
     <div>
-      {alertMessage && <div>{alertMessage}</div>}
+      {alertMessage && <FlashAlert>{alertMessage}</FlashAlert>}
       <CenteredRow>
         <div>
           <LinkButton to={AppRoutes.HOME}>

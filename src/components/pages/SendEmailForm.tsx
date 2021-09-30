@@ -96,6 +96,7 @@ export function SendEmailForm({
         <InputLabel htmlFor="toEmail">Recipient Email</InputLabel>
         <InputField
           id={"toEmail"}
+          type="email"
           onChange={(e) => setToEmail(e.target.value)}
           value={toEmail}
         />
