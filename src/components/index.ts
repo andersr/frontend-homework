@@ -16,5 +16,6 @@ export * from "./NoItemsMessage";
 export * from "./LinkButton";
 export * from "./Page";
 export * from "./SectionSpacer";
+export * from "./SendEmailForm";
 export * from "./TableCell";
 export * from "./WarningText";
