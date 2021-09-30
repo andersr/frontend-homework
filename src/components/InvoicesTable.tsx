@@ -2,11 +2,16 @@ import React, { useContext } from "react";
 import { DataTable } from ".";
 import { InvoicesContext } from "../providers";
 import { useHistory } from "react-router-dom";
-import { formatDate, formatPrice } from "../utils";
+import { formatDate, formatPrice, isPastDue } from "../utils";
 import { TableCell } from "./Tables/TableCell";
 import { WarningText } from "./WarningText";
 import { ClickableTableRow } from './ClickableTableRow';
-const now = new Date();
+import { NoItemsMessage } from './NoItemsMessage';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  padding-top: 10px;
+`;
 
 export function InvoicesTable() {
   const { invoices } = useContext(InvoicesContext);
@@ -17,7 +22,7 @@ export function InvoicesTable() {
   };
 
   return (
-    <div>
+    <Container>{invoices.length === 0 ? <NoItemsMessage>No Invoices added.</NoItemsMessage> : 
       <DataTable
         headers={[
           "Invoice #",
@@ -29,8 +34,6 @@ export function InvoicesTable() {
       >
         {invoices.map(
           ({ invoiceNumber, customerInfo, grandTotal, dueDate }) => {
-            const pastDueTime = new Date(dueDate).getTime();
-            const pastDue = pastDueTime < now.getTime();
             return (
               <ClickableTableRow
                 key={invoiceNumber}
@@ -41,13 +44,14 @@ export function InvoicesTable() {
                 <TableCell>{formatDate(dueDate)}</TableCell>
                 <TableCell>{formatPrice(Number(grandTotal))}</TableCell>
                 <TableCell>
-                  {pastDue ? <WarningText>Past Due</WarningText> : "Pending"}
+                  {isPastDue(dueDate) ? <WarningText>Past Due</WarningText> : "Pending"}
                 </TableCell>
               </ClickableTableRow>
             );
           }
         )}
       </DataTable>
-    </div>
+    }
+    </Container>
   );
 }
