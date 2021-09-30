@@ -6,6 +6,11 @@ import { InputLabel } from "../InputLabel";
 import { InputField } from "../InputField";
 import { WarningText } from "../WarningText";
 import { sendMail } from "../../utils";
+import { IconButton } from '../IconButton';
+import { faTimes } from "@fortawesome/free-solid-svg-icons";
+import styled from 'styled-components';
+import { CenteredRow } from '../CenteredRow';
+import { SectionSpacer } from '../SectionSpacer';
 
 Modal.setAppElement("#root");
 
@@ -20,6 +25,9 @@ const customStyles = {
   },
 };
 
+const Heading = styled.h2`
+margin: 0;
+`
 interface Props {
   invoiceNumber: string;
   modalIsOpen: boolean;
@@ -72,8 +80,9 @@ export function SendEmailForm({
       onRequestClose={() => setIsOpen(false)}
       shouldCloseOnOverlayClick
     >
-      <h2>Email Invoice</h2>
-      <button onClick={() => setIsOpen(false)}>close</button>
+      <CenteredRow><Heading>Email Invoice</Heading>
+      <IconButton altText="Close" icon={faTimes} onClick={() => setIsOpen(false)}>close</IconButton></CenteredRow>
+      <SectionSpacer />
       {errorMessage && <WarningText>{errorMessage}</WarningText>}
       <InputContainer>
         <InputLabel htmlFor="senderName">Your Name</InputLabel>
