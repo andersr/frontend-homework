@@ -19,6 +19,7 @@ import { LinkButton } from "../LinkButton";
 import { FlashAlert } from "../FlashAlert";
 
 Modal.setAppElement("#root");
+
 const Row = styled.div`
   display: flex;
   flex-direction: row;
