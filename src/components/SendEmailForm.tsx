@@ -1,16 +1,16 @@
 import React, { useState } from "react";
-import { Button } from "../Button";
+import { Button } from "./Button";
 import Modal from "react-modal";
-import { InputContainer } from "../InputContainer";
-import { InputLabel } from "../InputLabel";
-import { InputField } from "../InputField";
-import { WarningText } from "../WarningText";
-import { sendMail } from "../../utils";
-import { IconButton } from '../IconButton';
+import { InputContainer } from "./InputContainer";
+import { InputLabel } from "./InputLabel";
+import { InputField } from "./InputField";
+import { WarningText } from "./WarningText";
+import { sendMail } from "../utils";
+import { IconButton } from './IconButton';
 import { faTimes } from "@fortawesome/free-solid-svg-icons";
 import styled from 'styled-components';
-import { CenteredRow } from '../CenteredRow';
-import { SectionSpacer } from '../SectionSpacer';
+import { CenteredRow } from './CenteredRow';
+import { SectionSpacer } from './SectionSpacer';
 
 Modal.setAppElement("#root");
 

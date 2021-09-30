@@ -14,7 +14,7 @@ import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 import { AppRoutes } from "../../models";
 import { Button } from "../Button";
 import Modal from "react-modal";
-import { SendEmailForm } from "./SendEmailForm";
+import { SendEmailForm } from "../SendEmailForm";
 import { LinkButton } from '../LinkButton';
 import { FlashAlert } from '../FlashAlert';
 
