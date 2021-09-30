@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { TableHeader } from "./Tables/TableHeader";
+import { TableHeader } from "./TableHeader";
 
 const Container = styled.table`
   width: 100%;

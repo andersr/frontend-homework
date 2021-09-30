@@ -15,7 +15,7 @@ import { InputLabel } from "../InputLabel";
 import { Page } from "../Page";
 import { Button } from "../Button";
 import { InputTextArea } from "../InputTextArea";
-import { TableCell } from "../Tables/TableCell";
+import { TableCell } from "../TableCell";
 import { WarningText } from "../WarningText";
 import { SELLER_COMPANY_INFO } from "../../mockData";
 import { InputContainer } from "../InputContainer";

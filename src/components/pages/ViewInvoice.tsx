@@ -7,7 +7,7 @@ import { INVOICE_TABLE_HEADERS } from "../../shared";
 import { formatDate, formatPrice } from "../../utils";
 import styled from "styled-components";
 import { SELLER_COMPANY_INFO } from "../../mockData";
-import { TableCell } from "../Tables/TableCell";
+import { TableCell } from "../TableCell";
 import { CenteredRow } from "../CenteredRow";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";

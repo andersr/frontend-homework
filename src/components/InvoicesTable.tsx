@@ -3,7 +3,7 @@ import { DataTable } from ".";
 import { InvoicesContext } from "../providers";
 import { useHistory } from "react-router-dom";
 import { formatDate, formatPrice, isPastDue } from "../utils";
-import { TableCell } from "./Tables/TableCell";
+import { TableCell } from "./TableCell";
 import { WarningText } from "./WarningText";
 import { ClickableTableRow } from './ClickableTableRow';
 import { NoItemsMessage } from './NoItemsMessage';

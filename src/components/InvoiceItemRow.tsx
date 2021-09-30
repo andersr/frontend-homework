@@ -2,7 +2,7 @@ import React from "react";
 import { InvoiceItem, KeyValuePair } from "../models";
 import { formatPrice } from '../utils';
 import { InputField } from "./InputField";
-import { TableCell } from "./Tables/TableCell";
+import { TableCell } from "./TableCell";
 
 interface Props {
   item: InvoiceItem;
