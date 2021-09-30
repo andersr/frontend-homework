@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import { AppRoutes } from '../models';
+import { AppRoutes } from "../models";
 import { AppColors, SECTION_PADDING } from "../styles";
 
 const Container = styled.div`

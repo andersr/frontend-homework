@@ -34,7 +34,10 @@ interface Props {
   setIsOpen: (isOpen: boolean) => void;
   handleEmailResult: (result: string) => void;
 }
-const missingEmailConfig = !process.env.REACT_APP_EMAIL_SERVICE || !process.env.REACT_APP_EMAIL_TEMPLATE || !process.env.REACT_APP_EMAIL_USERNAME;
+const missingEmailConfig =
+  !process.env.REACT_APP_EMAIL_SERVICE ||
+  !process.env.REACT_APP_EMAIL_TEMPLATE ||
+  !process.env.REACT_APP_EMAIL_USERNAME;
 
 export function SendEmailForm({
   modalIsOpen,
@@ -43,16 +46,16 @@ export function SendEmailForm({
   handleEmailResult,
 }: Props) {
   const [loading, setLoading] = useState(false);
-  
+
   const [senderName, setSenderName] = useState("");
   const [toEmail, setToEmail] = useState("");
   const [errorMessage, setErrorMessage] = useState<string | undefined>();
-  
+
   useEffect(() => {
-  if (missingEmailConfig) {
-    setErrorMessage('Cannot send email. Please check your config.')
-  }
-  }, [])
+    if (missingEmailConfig) {
+      setErrorMessage("Cannot send email. Please check your config.");
+    }
+  }, []);
 
   const handleSendEmail = async () => {
     if (errorMessage) {
@@ -64,7 +67,7 @@ export function SendEmailForm({
       return;
     }
     setLoading(true);
-    
+
     const result: any = await sendMail({
       fromName: senderName,
       toEmail,
@@ -98,7 +101,12 @@ export function SendEmailForm({
         </IconButton>
       </CenteredRow>
       <SectionSpacer />
-      {errorMessage && <><WarningText>{errorMessage}</WarningText><SectionSpacer /></>}
+      {errorMessage && (
+        <>
+          <WarningText>{errorMessage}</WarningText>
+          <SectionSpacer />
+        </>
+      )}
       <InputContainer>
         <InputLabel htmlFor="senderName">Your Name</InputLabel>
         <InputField

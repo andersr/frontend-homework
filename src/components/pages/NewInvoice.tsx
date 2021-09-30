@@ -24,7 +24,7 @@ import { SectionSpacer } from "../SectionSpacer";
 export const TEST_CREATE_BUTTON = "testCreateButton";
 export const TEST_ERROR_MESSAGE = "testErrorMessage";
 
-export const MISSING_COMPANY_INFO_ERROR_MSG = "Please enter company info."
+export const MISSING_COMPANY_INFO_ERROR_MSG = "Please enter company info.";
 export const NO_ITEMS_ERROR_MSG = "Please add one or more invoice items.";
 
 const Container = styled.div``;
