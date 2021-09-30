@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Page } from "../Page";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { InvoicesContext } from "../../providers";
 import { DataTable } from "..";
 import { INVOICE_TABLE_HEADERS } from "../../shared";
@@ -15,6 +15,7 @@ import { AppRoutes } from "../../models";
 import { Button } from "../Button";
 import Modal from "react-modal";
 import { SendEmailForm } from "./SendEmailForm";
+import { LinkButton } from '../LinkButton';
 
 Modal.setAppElement("#root");
 const Row = styled.div`
@@ -54,10 +55,10 @@ export function ViewInvoice() {
       {alertMessage && <div>{alertMessage}</div>}
       <CenteredRow>
         <div>
-          <Link to={AppRoutes.HOME}>
+          <LinkButton to={AppRoutes.HOME}>
             <FontAwesomeIcon title="Back to invoice list" icon={faArrowLeft} />{" "}
             All Invoices
-          </Link>
+          </LinkButton>
         </div>
         <div>
           <Button onClick={() => setIsOpen(true)}>Email Invoice</Button>
