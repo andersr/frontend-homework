@@ -107,7 +107,7 @@ function NewInvoice() {
     e.preventDefault();
 
     if (Object.values(customerValues).some((val) => val.trim() === "")) {
-      setErrorMessage("Please enter company info.");
+      setErrorMessage(MISSING_COMPANY_INFO_ERROR_MSG);
       return;
     }
 
