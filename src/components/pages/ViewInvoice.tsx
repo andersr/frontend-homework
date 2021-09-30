@@ -46,11 +46,18 @@ export function ViewInvoice() {
   const [alertMessage, setAlertMessage] = useState("");
 
   useEffect(() => {
+    let id: NodeJS.Timeout | undefined;
     if (alertMessage) {
-      setTimeout(() => {
+      id = setTimeout(() => {
         setAlertMessage("");
       }, 5000);
     }
+
+    return () => { 
+      if (id) {
+        clearTimeout(id)
+      }
+     };
   }, [alertMessage]);
   return (
     <div>
