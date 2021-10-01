@@ -27,17 +27,18 @@ export const InvoiceProvider: React.FC = ({ children }) => {
   );
 
   useEffect(() => {
-    // Add sample invoices
-    setInvoices([
-      {
-        invoiceNumber: "1",
-        ...PENDING_INVOICE,
-      },
-      {
-        invoiceNumber: "2",
-        ...LATE_INVOICE,
-      },
-    ]);
+    if(process.env.REACT_APP_SEED_INVOICES){
+      setInvoices([
+        {
+          invoiceNumber: "1",
+          ...PENDING_INVOICE,
+        },
+        {
+          invoiceNumber: "2",
+          ...LATE_INVOICE,
+        },
+      ]);
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 

@@ -29,6 +29,7 @@
   },
   "scripts": {
     "start": "yarn install && react-scripts start",
+    "start:seed": "REACT_APP_SEED_INVOICES=true yarn start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",

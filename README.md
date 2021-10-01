@@ -3,6 +3,7 @@
 ## Running the app
 
 - Run `yarn start`
+- Run app with sample invoices: `yarn start:seed`
 - View app at `http://localhost:3000`
 
 ## Running tests
