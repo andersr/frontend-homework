@@ -23,7 +23,7 @@ import {
 } from "../components";
 
 import { SELLER_COMPANY_INFO } from "../mockData";
-import { formatPrice } from "../utils";
+import { formatPrice, hasMissingValues } from "../utils";
 
 export const MISSING_COMPANY_INFO_ERROR_MSG = "Please enter company info.";
 export const NO_ITEMS_ERROR_MSG = "Please add one or more invoice items.";
@@ -104,12 +104,17 @@ function NewInvoice() {
   const handleCreateInvoice = (e: any) => {
     e.preventDefault();
 
-    if (Object.values(customerValues).some((val) => val.trim() === "")) {
+    if (hasMissingValues(customerValues)) {
       setErrorMessage(MISSING_COMPANY_INFO_ERROR_MSG);
       return;
     }
 
     if (invoiceItems.length === 0) {
+      setErrorMessage(NO_ITEMS_ERROR_MSG);
+      return;
+    }
+
+    if (invoiceItems) {
       setErrorMessage(NO_ITEMS_ERROR_MSG);
       return;
     }

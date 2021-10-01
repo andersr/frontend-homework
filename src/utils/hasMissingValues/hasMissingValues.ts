@@ -1,0 +1,1 @@
+export const hasMissingValues = (obj: any) => Object.values(obj).some((val: any) => val.trim() === "");
