@@ -12,7 +12,7 @@
 
 ## Sending Email
 
-- To send email, I can provide info to to be added to a local `.env` file.
+- To send email, I can provide info to be added to a local `.env` file.
 
 <hr />
 
