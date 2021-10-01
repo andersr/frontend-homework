@@ -114,11 +114,6 @@ function NewInvoice() {
       return;
     }
 
-    if (invoiceItems) {
-      setErrorMessage(NO_ITEMS_ERROR_MSG);
-      return;
-    }
-
     handleAddInvoice({
       companyInfo: SELLER_COMPANY_INFO,
       customerInfo: customerValues,
