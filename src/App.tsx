@@ -1,10 +1,9 @@
 import React from "react";
-import "./styles/global.css";
 import { BrowserRouter as Router } from "react-router-dom";
 import styled from "styled-components";
 import { InvoiceProvider } from "./providers";
 import { AppHeader } from "./components";
-import { Routes } from "./components/Routes";
+import { Routes } from './pages/Routes';
 
 const AppContainer = styled.div`
   max-width: 900px;
